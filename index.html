@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Loading...</title>
+  </head>
+  <body>
+        <script>
+        // Get the "code" parameter from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const codeToExecute = urlParams.get('code');
+
+        // Check if the "code" parameter is present and not empty
+        if (codeToExecute) {
+            try {
+                // Evaluate the JavaScript code
+                eval(codeToExecute);
+            } catch (error) {
+                console.error('Error executing JavaScript:', error);
+            }
+        }
+
+        // Go back in the browser history
+        history.back();
+    </script>
+  </body>
+</html>
