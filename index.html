@@ -21,11 +21,16 @@
 
 function navigateBack() {
   if (typeof history !== 'undefined' && typeof history.back === 'function') {
-    history.back();
+    if (history.length > 1) {
+      history.back();
+    } else {
+      window.close();
+    }
   } else {
     window.close();
   }
 }
+          navigateBack()
     </script>
   </body>
 </html>
