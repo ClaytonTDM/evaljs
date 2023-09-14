@@ -19,9 +19,13 @@
             }
         }
 
-        // Go back in the browser history
-        window.close();
-        history.back();
+function navigateBack() {
+  if (typeof history !== 'undefined' && typeof history.back === 'function') {
+    history.back();
+  } else {
+    window.close();
+  }
+}
     </script>
   </body>
 </html>
