@@ -5,6 +5,17 @@
   </head>
   <body>
         <script>
+          function navigateBack() {
+  if (typeof history !== 'undefined' && typeof history.back === 'function') {
+    if (history.length > 1) {
+      history.back();
+    } else {
+      window.close();
+    }
+  } else {
+    window.close();
+  }
+}
         // Get the "code" parameter from the URL
         const urlParams = new URLSearchParams(window.location.search);
         const codeToExecute = urlParams.get('code');
@@ -17,20 +28,9 @@
             } catch (error) {
                 console.error('Error executing JavaScript:', error);
             }
+        } else {
+                    navigateBack()
         }
-
-function navigateBack() {
-  if (typeof history !== 'undefined' && typeof history.back === 'function') {
-    if (history.length > 1) {
-      history.back();
-    } else {
-      window.close();
-    }
-  } else {
-    window.close();
-  }
-}
-          navigateBack()
     </script>
   </body>
 </html>
